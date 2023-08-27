@@ -1,7 +1,9 @@
 package com.unejsi.springbootecommerce.config;
 
+import com.unejsi.springbootecommerce.entity.Country;
 import com.unejsi.springbootecommerce.entity.Product;
 import com.unejsi.springbootecommerce.entity.ProductCategory;
+import com.unejsi.springbootecommerce.entity.State;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.EntityType;
@@ -31,17 +33,23 @@ public class DataRestConfig implements RepositoryRestConfigurer {
         HttpMethod[] unsupportedActions = {HttpMethod.DELETE, HttpMethod.POST, HttpMethod.PUT};
 
         //disable HTTP methods we have in the list
-        config.getExposureConfiguration()
-                .forDomainType(Product.class)
-                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(unsupportedActions))
-                .withCollectionExposure(((metadata, httpMethods) -> httpMethods.disable(unsupportedActions)));
+        disableHttpMethods(Product.class, config, unsupportedActions);
 
-        config.getExposureConfiguration()
-                .forDomainType(ProductCategory.class)
-                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(unsupportedActions))
-                .withCollectionExposure(((metadata, httpMethods) -> httpMethods.disable(unsupportedActions)));
+        disableHttpMethods(ProductCategory.class, config, unsupportedActions);
+
+        disableHttpMethods(Country.class, config, unsupportedActions);
+
+        disableHttpMethods(State.class, config, unsupportedActions);
+
 
         exposeIds(config);
+    }
+
+    private void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] unsupportedActions) {
+        config.getExposureConfiguration()
+                .forDomainType(theClass)
+                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(unsupportedActions))
+                .withCollectionExposure(((metadata, httpMethods) -> httpMethods.disable(unsupportedActions)));
     }
 
 
