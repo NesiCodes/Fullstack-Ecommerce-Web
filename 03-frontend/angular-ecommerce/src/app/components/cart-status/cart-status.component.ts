@@ -11,7 +11,6 @@ export class CartStatusComponent implements OnInit{
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-
   constructor(private cartService: CartService) {
   }
 
