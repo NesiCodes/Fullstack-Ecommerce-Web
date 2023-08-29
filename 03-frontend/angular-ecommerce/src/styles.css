@@ -85,7 +85,7 @@ h6{
 }
 
 a{
-  display:inline-block
+  display:inline-block;
 }
 
 a:active,a:focus,a:hover{
@@ -94,6 +94,7 @@ a:active,a:focus,a:hover{
 }
 
 a,a:hover{
+  text-decoration:none;
   -webkit-transition:all .3s ease;
   -o-transition:all .3s ease;
   -moz-transition:all .3s ease;
@@ -980,7 +981,7 @@ footer ul li{
     text-align:center
   }
   .product-box{
-    text-align:centerg
+    text-align:center;
   }
   .page-container{
     position:relative;
