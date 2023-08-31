@@ -30,6 +30,8 @@ export class CheckoutComponent implements OnInit {
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
 
+  storage: Storage = sessionStorage;
+
 
   constructor(private formBuilder: FormBuilder,
               private formService: FormService,
@@ -37,11 +39,13 @@ export class CheckoutComponent implements OnInit {
               private checkoutService: CheckoutService,
               private router: Router) {
 
+    const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
+
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: [''],
         lastName: [''],
-        email: ['']
+        email: theEmail
       }),
       shippingAddress: this.formBuilder.group({
         street: [''],
@@ -101,6 +105,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
 
     this.reviewCartDetails();
+
   }
 
   copyShippingAddressToBillingAddress(event: any) {
