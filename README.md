@@ -53,4 +53,4 @@ This repository contains the code for a E-commerce website built using Angular f
 
 ### Entity Relationship Diagram
 
-![image](https://github.com/NesiCodes/Fullstack-Ecommerce-Web/assets/89842810/ec8a329f-8359-45e4-ae57-3f0cb89a5f61)
+![img9](https://github.com/NesiCodes/Fullstack-Ecommerce-Web/assets/89842810/5c3fc1da-45ce-4ae2-a155-f654f91fca9a)
