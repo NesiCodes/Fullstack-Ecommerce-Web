@@ -36,7 +36,7 @@ This repository contains the code for a E-commerce website built using Angular f
 
 ### Installation
 
-1. Clone the repository: `git clone [repository URL]`
+1. Clone the repository: `git clone https://github.com/NesiCodes/Fullstack-Ecommerce-Web.git`
 2. Navigate to db-scripts directory: `cd 01-stater-files/db-scripts`
 3. Execute each sql script using MySql Workbench to create the database schema and required tables
 4. Navigate to the back-end directory: `cd 02-backend/spring-boot rest api`
